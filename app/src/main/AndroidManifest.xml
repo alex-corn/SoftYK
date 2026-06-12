@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SoftYK">
+
+        <!-- Setup screen — launched from home screen -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+            Challenge-response handler.
+            Implements the same intent interface as ykDroid so KeePass2Android
+            can use this app as a drop-in virtual YubiKey backed by AndroidKeyStore.
+
+            - KeePass2Android fires:
+                action  = net.pp3345.ykdroid.intent.action.CHALLENGE_RESPONSE
+                extra   = byte[] "challenge"
+            - We return:
+                setResult(RESULT_OK, intent with byte[] "response")
+
+            launchMode="singleTop" matches ykDroid's original manifest.
+            Theme is transparent — no window flash, dialog still appears.
+        -->
+        <activity
+            android:name=".ChallengeResponseActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.SoftYK.Transparent"
+            android:configChanges="keyboard|screenSize|screenLayout|touchscreen|locale|keyboardHidden|navigation">
+            <intent-filter>
+                <action android:name="net.pp3345.ykdroid.intent.action.CHALLENGE_RESPONSE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

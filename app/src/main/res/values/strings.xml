@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SoftYK</string>
+    <string name="subtitle">Software challenge-response provider compatible with ykDroid</string>
+
+    <string name="label_status">Key status</string>
+    <string name="status_loaded">✓ HMAC secret loaded</string>
+    <string name="status_none">No key stored</string>
+    <string name="backend_hint">Key is non-exportable once saved. Stored in hardware security module.</string>
+
+    <string name="label_import">Import secret</string>
+    <string name="hint_hex_secret">HMAC-SHA1 secret (hex)</string>
+    <string name="helper_hex">Accepts plain hex (aabbcc…), colon-separated (AA:BB:CC), or space-separated</string>
+    <string name="btn_save">Save to Keystore</string>
+
+    <string name="label_approved">Approved apps</string>
+    <string name="approved_description">Apps that have been granted permanent access. Tap Revoke to require confirmation again.</string>
+    <string name="approved_empty">No apps approved yet.</string>
+
+    <string name="label_danger">Remove key</string>
+    <string name="danger_description">Deletes the stored secret from the Keystore. Your KeePass database will be unaffected, but you will need to import the secret again to unlock it via SoftYK.</string>
+    <string name="btn_clear">Remove stored key</string>
+</resources>
