@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var tilHexSecret: TextInputLayout
     private lateinit var etHexSecret: TextInputEditText
+    private lateinit var cbLt64: android.widget.CheckBox
     private lateinit var tvStatus: TextView
     private lateinit var tvBackend: TextView
     private lateinit var btnSave: Button
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         tilHexSecret      = findViewById(R.id.tilHexSecret)
         etHexSecret       = findViewById(R.id.etHexSecret)
+        cbLt64            = findViewById(R.id.cbLt64)
         tvStatus          = findViewById(R.id.tvStatus)
         tvBackend         = findViewById(R.id.tvBackend)
         btnSave           = findViewById(R.id.btnSave)
@@ -82,7 +84,7 @@ class MainActivity : AppCompatActivity() {
     private fun saveKey() {
         val hex = etHexSecret.text?.toString() ?: return
         try {
-            val usedStrongBox = KeystoreHelper.importSecret(hex)
+            val usedStrongBox = KeystoreHelper.importSecret(this, hex, cbLt64.isChecked)
             etHexSecret.setText("")
             tilHexSecret.error = null
             android.widget.Toast.makeText(this, "Key saved into KeyStore", android.widget.Toast.LENGTH_LONG).show()
