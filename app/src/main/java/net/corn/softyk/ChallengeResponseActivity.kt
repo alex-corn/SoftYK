@@ -96,7 +96,7 @@ class ChallengeResponseActivity : AppCompatActivity() {
 
     private fun respond(challenge: ByteArray) {
         try {
-            val response = KeystoreHelper.computeHmac(challenge)
+            val response = KeystoreHelper.computeHmac(this, challenge)
             setResult(RESULT_OK, Intent().apply { putExtra("response", response) })
         } catch (e: Exception) {
             Log.e("SoftYK", "respond failed", e);

@@ -11,6 +11,8 @@
     <string name="label_import">Import secret</string>
     <string name="hint_hex_secret">HMAC-SHA1 secret (hex)</string>
     <string name="helper_hex">Accepts plain hex (aabbcc…), colon-separated (AA:BB:CC), or space-separated</string>
+    <string name="cb_lt64">Variable-length challenge (HMAC_LT64)</string>
+    <string name="cb_lt64_help">Checked: HMAC_LT64 — a 64-byte challenge has its trailing padding (bytes equal to the 64th byte) stripped; shorter challenges are used unchanged. Unchecked: fixed 64-byte challenge; shorter challenges are zero-padded to 64 bytes.</string>
     <string name="btn_save">Save to Keystore</string>
 
     <string name="label_approved">Approved apps</string>
